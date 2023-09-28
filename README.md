@@ -10,7 +10,7 @@
 - [Usage](#usage)
 - [Contributing](#contributing)
 - [License](#license)
-- [Acknowledgments](#acknowledgments)
+- [Author](#author)
 ## Introduction
 This Python script converts a PDF document into an audio summary. It utilizes various libraries to achieve this, including text extraction from PDF files and text summarization using OpenAI's GPT-3.
 
@@ -30,10 +30,13 @@ Before running the script, make sure to install the following Python libraries:
 - `pyttsx3`: Used for text-to-speech conversion.
 
 
-##Author
+## Author
 - Name: `cython boy`
 - Gmail:`gaenshnikhil124@gmail.com`
 
+## Prerequisites
+  #python verson >= 3.10
+  
 ## Dependencis
 You can install these libraries using `pip`:
 ```bash
