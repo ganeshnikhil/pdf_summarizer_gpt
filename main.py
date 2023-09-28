@@ -2,7 +2,13 @@ import g4f #free version of openai thrid party downloaded software
 import time
 import pyttsx3
 from PyPDF2 import PdfReader
-
+'''
+it convert pdf to a summarized audio .
+def extract_text_from_pdf(filename): to extract text from pdf. 
+def split_text(text): split text in chunks 
+def genrate_summary(text, model="gpt-3.5-turbo"): genrate summary using gpt
+def text_to_speech(summary): text to speech . audio of genrated summary
+'''
 def extract_text_from_pdf(filename):
    text=''
    with open(filename,'rb') as file:
@@ -44,7 +50,7 @@ def genrate_summary(text, model="gpt-3.5-turbo"):
       )
       textify="".join([message for message in response])
       output_chunks.append(textify)
-      time.sleep(0.2)
+      time.sleep(0.1)
    return output_chunks
 
 
@@ -60,9 +66,9 @@ def text_to_speech(summary):
    speaker.runAndWait()
    
    
-
+filename="sample.pdf"
 # extracted text from pdf file
-text=extract_text_from_pdf("sample.pdf")
+text=extract_text_from_pdf(filename)
 #genrated summary using third party openai library name g4f
 summary=genrate_summary(text)
 speak_text="".join(summary)
