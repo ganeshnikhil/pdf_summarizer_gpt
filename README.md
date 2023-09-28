@@ -23,8 +23,8 @@ You can install these libraries using `pip`:
 
 ```bash
 pip install -r requirements.txt
-python3 main.py
+python3 main.py ```
 
-
+```Author
 - Name: `cython boy`
 - Gmail:`gaenshnikhil124@gmail.com` 
