@@ -2,6 +2,16 @@
 
 ## PDF Summarization and Text-to-Speech
 
+- [Introduction](#introduction)
+- [Features](#features)
+- [Getting Started](#getting-started)
+  - [Prerequisites](#prerequisites)
+  - [Installation](#installation)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
+- [Acknowledgments](#acknowledgments)
+## Introduction
 This Python script converts a PDF document into an audio summary. It utilizes various libraries to achieve this, including text extraction from PDF files and text summarization using OpenAI's GPT-3.
 
 ## Features
@@ -19,12 +29,15 @@ Before running the script, make sure to install the following Python libraries:
 - `g4f` (third-party OpenAI library): Utilized for text summarization.
 - `pyttsx3`: Used for text-to-speech conversion.
 
-You can install these libraries using `pip`:
 
+##Author
+- Name: `cython boy`
+- Gmail:`gaenshnikhil124@gmail.com`
+
+## Dependencis
+You can install these libraries using `pip`:
 ```bash
 pip install -r requirements.txt
 python3 main.py ```
 
-```Author
-- Name: `cython boy`
-- Gmail:`gaenshnikhil124@gmail.com` 
+
