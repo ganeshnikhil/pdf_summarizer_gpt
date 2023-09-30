@@ -41,6 +41,6 @@ Before running the script, make sure to install the following Python libraries:
 You can install these libraries using `pip`:
 ```bash
 pip install -r requirements.txt
-python3 main.py ```
+python3 main.py 
 
 
