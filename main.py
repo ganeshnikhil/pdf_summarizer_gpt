@@ -2,7 +2,16 @@ import g4f #free version of openai thrid party downloaded software
 import time
 import pyttsx3
 from PyPDF2 import PdfReader
-import functools
+#import functools
+
+'''
+def extract_text_from_pdf(filename:str)->str: extract text from pdf 
+def split_text(text:str)->list[str]: split text in chunks
+def genrate_summary(text:str, model="gpt-3.5-turbo")->list[str]: send request to gpt to get summary back 
+def text_to_speech(summary:str)->None: text to speech.
+filepath="" path of pdf file whose summary you want
+'''
+
 def extract_text_from_pdf(filename:str)->str:
    text=''
    with open(filename,'rb') as file:
@@ -29,7 +38,7 @@ def split_text(text:str)->list[str]:
 
 
 
-@functools.lru_cache(maxsize=1024)
+#@functools.lru_cache(maxsize=1024)
 def genrate_summary(text:str, model="gpt-3.5-turbo")->list[str]:
    input_chunks=split_text(text)
    output_chunks=[]
@@ -61,13 +70,12 @@ def text_to_speech(summary:str)->None:
    return None
    
    
-
+filepath="sample.pdf"
 # extracted text from pdf file
-text=extract_text_from_pdf("sample.pdf")
+text=extract_text_from_pdf(filepath)
 #genrated summary using third party openai library name g4f
 summary=genrate_summary(text)
 speak_text="".join(summary)
-
 #now pass the genrated summary to speech to text 
 text_to_speech(speak_text)
 
