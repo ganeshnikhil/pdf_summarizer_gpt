@@ -9,7 +9,7 @@ openai.api_key = os.environ["OPENAI_API_KEY"]
 '''
 def extract_text_from_pdf(filename:str)->str: extract text from pdf 
 def split_text(text:str)->list[str]: split text in chunks
-def genrate_summary(text:str, model="gpt-3.5-turbo")->list[str]: send request to gpt to get summary back 
+def genrate_summary(text:str, model="davinci")->list[str]: send request to gpt to get summary back 
 def text_to_speech(summary:str)->None: text to speech.
 filepath="" path of pdf file whose summary you want
 '''
@@ -41,12 +41,12 @@ def split_text(text:str)->list[str]:
 
 
 #@functools.lru_cache(maxsize=1024)
-def generate_summary(text:str) -> str:
+def generate_summary(text:str , model = "davinci") -> str:
     input_chunks = split_text(text)
     output_chunks = []
     for i , chunk in enumerate(input_chunks):
         response = openai.Completion.create(
-            engine="davinci",
+            engine = model,
             prompt = f"Please summarize the following paragraph ({i + 1}):\n{chunk}\n\nSummary:"
             temperature=0.5,
             max_tokens=1024,
