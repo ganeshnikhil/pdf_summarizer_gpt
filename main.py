@@ -1,8 +1,10 @@
-import g4f #free version of openai thrid party downloaded software 
+from openai 
 import time
 import pyttsx3
 from PyPDF2 import PdfReader
 #import functools
+
+openai.api_key = os.environ["OPENAI_API_KEY"]
 
 '''
 def extract_text_from_pdf(filename:str)->str: extract text from pdf 
@@ -23,7 +25,7 @@ def extract_text_from_pdf(filename:str)->str:
 
 
 def split_text(text:str)->list[str]:
-   max_chunk_size = 1024
+   max_chunk_size = 2048
    chunks = []
    current_chunk = ""
    for sentence in text.split("."):
@@ -39,22 +41,21 @@ def split_text(text:str)->list[str]:
 
 
 #@functools.lru_cache(maxsize=1024)
-def genrate_summary(text:str, model="gpt-3.5-turbo")->list[str]:
-   input_chunks=split_text(text)
-   output_chunks=[]
-   for i,chunk in enumerate(input_chunks):
-      #prompt=f"Please summarize the following text:\n{chunk}\n\nSummary:"
-      prompt = f"Please summarize the following paragraph ({i + 1}):\n{chunk}\n\nSummary:"
-      messages = [{"role": "user", "content": prompt}]
-      response = g4f.ChatCompletion.create(
-         model=model,
-         messages=messages,
-         stream=True,
-      )
-      textify="".join([message for message in response])
-      output_chunks.append(textify)
-      time.sleep(0.2)
-   return output_chunks
+def generate_summary(text:str) -> str:
+    input_chunks = split_text(text)
+    output_chunks = []
+    for i , chunk in enumerate(input_chunks):
+        response = openai.Completion.create(
+            engine="davinci",
+            prompt = f"Please summarize the following paragraph ({i + 1}):\n{chunk}\n\nSummary:"
+            temperature=0.5,
+            max_tokens=1024,
+            n = 1,
+            stop=None
+        )
+        summary = response.choices[0].text.strip()
+        output_chunks.append(summary)
+    return " ".join(output_chunks)
 
 
 
