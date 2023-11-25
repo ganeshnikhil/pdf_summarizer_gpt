@@ -12,13 +12,13 @@
 - [License](#license)
 - [Author](#author)
 ## Introduction
-This Python script converts a PDF document into an audio summary. It utilizes various libraries to achieve this, including text extraction from PDF files and text summarization using OpenAI's GPT-3.
+This Python script converts a PDF document into an audio summary. It utilizes various libraries to achieve this, including text extraction from PDF files and text summarization using OpenAI's ai model.
 
 ## Features
 
 - Extract text from a PDF document.
 - Split the extracted text into manageable chunks.
-- Generate concise summaries of each text chunk using OpenAI's GPT-3.
+- Generate concise summaries of each text chunk using OpenAI's ai model.
 - Convert the generated summaries into speech using text-to-speech technology.
 
 ## Dependencies
@@ -26,7 +26,7 @@ This Python script converts a PDF document into an audio summary. It utilizes va
 Before running the script, make sure to install the following Python libraries:
 
 - `PyPDF2`: Used for extracting text from PDF files.
-- `g4f` (third-party OpenAI library): Utilized for text summarization.
+- `openai`  Utilized for text summarization.(davinci)
 - `pyttsx3`: Used for text-to-speech conversion.
 
 
